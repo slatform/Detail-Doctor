@@ -168,3 +168,96 @@ nav a:hover {
     font-size: 1.05em;
     font-weight: 300;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        margin-left: 20px;
+        font-size: 0.9em;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .hero button {
+        padding: 10px 30px;
+        font-size: 1em;
+    }
+
+    .services {
+        padding: 80px 30px;
+    }
+
+    .services h2 {
+        font-size: 2em;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    nav a {
+        margin-left: 15px;
+        font-size: 0.8em;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 0.9em;
+    }
+
+    .services {
+        padding: 60px 20px;
+    }
+
+    .services h2 {
+        font-size: 1.8em;
+    }
+
+    .card {
+        padding: 20px 10px;
+    }
+
+    .card i {
+        font-size: 2em;
+    }
+
+    .card h3 {
+        font-size: 1.4em;
+    }
+
+    .card p {
+        font-size: 1em;
+    }
+}
