@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="services.css">
 </head>
 <body>
+    <a href="#services-list" class="skip-link">Skip to main content</a>
     <header>
         <div class="logo">DETAIL DOCTOR</div>
         <nav>
@@ -18,30 +19,317 @@
     </header>
     <section class="services-hero">
         <div class="services-overlay"></div>
-        <div class="services-content">
+        <div class="services-content animated-fade-in">
             <h1>Our Services</h1>
-            <p>Comprehensive detailing for all vehicles, including luxury cars.</p>
+            <p class="services-tagline">Premium mobile detailing for every vehicle—convenient, professional, and eco-friendly.</p>
         </div>
     </section>
-    <section class="services-list">
+    <section class="services-list" id="services-list">
         <div class="service-item">
             <i class="fas fa-car"></i>
             <h2>Exterior Service</h2>
-            <p>Hand wash, premium wax, ceramic coating, tire cleaning, glass polishing.</p>
+            <ul class="service-features">
+                <li>Hand wash & dry</li>
+                <li>Premium wax & ceramic coating</li>
+                <li>Tire & wheel cleaning</li>
+                <li>Glass & trim polish</li>
+            </ul>
             <p class="price">$150</p>
+            <button class="service-cta" onclick="window.location.href='contact.html'">Book Now</button>
         </div>
         <div class="service-item">
             <i class="fas fa-tachometer-alt"></i>
             <h2>Interior Service</h2>
-            <p>Vacuuming, deep clean, leather conditioning, fabric treatment, dashboard polish.</p>
+            <ul class="service-features">
+                <li>Deep vacuum & shampoo</li>
+                <li>Leather restoration & care</li>
+                <li>Fabric & upholstery cleaning</li>
+                <li>Odor removal & sanitization</li>
+            </ul>
             <p class="price">$175</p>
+            <button class="service-cta" onclick="window.location.href='contact.html'">Book Now</button>
         </div>
         <div class="service-item">
             <i class="fas fa-car-side"></i>
             <h2>Full Service</h2>
-            <p>Complete exterior and interior detailing, including all services above.</p>
+            <ul class="service-features">
+                <li>Complete interior & exterior detail</li>
+                <li>Paint protection & finishing</li>
+                <li>Engine bay cleaning</li>
+                <li>Showroom-quality results</li>
+            </ul>
             <p class="price">$275</p>
+            <button class="service-cta" onclick="window.location.href='contact.html'">Book Now</button>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3>How long does a typical detail take?</h3>
+                <p>Most details take between 2-4 hours, depending on the service and vehicle size.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What do I need to provide?</h3>
+                <p>Just your vehicle and access to a parking spot. We bring all the equipment and supplies needed.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What areas do you serve?</h3>
+                <p>We serve all of San Diego and surrounding areas. Contact us if you're unsure about your location.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I book a service?</h3>
+                <p>You can book online, call us, or use the contact form. We'll confirm your appointment promptly.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Are your products eco-friendly?</h3>
+                <p>Yes! We use safe, eco-friendly products and water-saving techniques for every detail.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (Simple) -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">DETAIL DOCTOR</span>
+                <span class="footer-address">4150 Bonillo Drive, San Diego, CA 92115</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Detail Doctor. All rights reserved.
+        </div>
+    </footer>
+
+    <style>
+    .site-footer {
+        background: #232323;
+        color: #fff;
+        padding: 36px 0 0 0;
+        font-size: 1em;
+        margin-top: 0;
+    }
+    .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px 18px 24px;
+        border-bottom: 1px solid #333;
+    }
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .footer-logo {
+        font-size: 1.3em;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+    .footer-address {
+        font-size: 0.98em;
+        color: #ccc;
+    }
+    .footer-nav {
+        display: flex;
+        gap: 28px;
+    }
+    .footer-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1em;
+        transition: color 0.2s;
+    }
+    .footer-nav a:hover {
+        color: #f7b731;
+    }
+    .footer-bottom {
+        text-align: center;
+        color: #aaa;
+        font-size: 0.98em;
+        padding: 18px 0 10px 0;
+        background: #232323;
+    }
+    @media (max-width: 700px) {
+        .footer-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 0 10px 12px 10px;
+        }
+        .footer-nav {
+            gap: 16px;
+        }
+        .footer-logo {
+            font-size: 1.1em;
+        }
+        .footer-address {
+            font-size: 0.92em;
+        }
+    }
+    .animated-fade-in {
+        animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .services-tagline {
+        font-size: 1.2em;
+        font-weight: 400;
+        color: #2a2a2a;
+        margin-bottom: 32px;
+        margin-top: 8px;
+        letter-spacing: 0.01em;
+    }
+    @media (max-width: 768px) {
+        .services-tagline {
+            font-size: 1em;
+        }
+    }
+    .service-features {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 18px 0;
+        text-align: left;
+        color: #333;
+        font-size: 1em;
+    }
+    .service-features li {
+        margin-bottom: 7px;
+        padding-left: 1.2em;
+        position: relative;
+    }
+    .service-features li:before {
+        content: '\f00c';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: #1a1a1a;
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        font-size: 0.95em;
+    }
+    .service-cta {
+        background: #1a1a1a;
+        color: #fff;
+        border: none;
+        padding: 10px 28px;
+        font-size: 1em;
+        font-weight: 500;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.2s, transform 0.2s;
+    }
+    .service-cta:hover {
+        background: #333;
+        transform: translateY(-2px) scale(1.04);
+    }
+    @media (max-width: 768px) {
+        .service-features {
+            font-size: 0.95em;
+        }
+        .service-cta {
+            font-size: 0.95em;
+            padding: 8px 18px;
+        }
+    }
+    .faq-section {
+        background: #f7f7f7;
+        padding: 70px 0 50px 0;
+        text-align: center;
+    }
+    .faq-section h2 {
+        font-size: 2em;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+    }
+    .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        text-align: left;
+    }
+    .faq-item h3 {
+        font-size: 1.15em;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #1a1a1a;
+    }
+    .faq-item p {
+        color: #4a4a4a;
+        font-size: 1em;
+        margin: 0;
+    }
+    @media (max-width: 700px) {
+        .faq-section {
+            padding: 40px 0 30px 0;
+        }
+        .faq-section h2 {
+            font-size: 1.2em;
+            margin-bottom: 24px;
+        }
+        .faq-list {
+            gap: 16px;
+        }
+        .faq-item h3 {
+            font-size: 1em;
+        }
+        .faq-item p {
+            font-size: 0.95em;
+        }
+    }
+    .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        z-index: 10000;
+        background: #f7b731;
+        color: #1a1a1a;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 1em;
+        transition: left 0.2s;
+    }
+    .skip-link:focus {
+        left: 16px;
+        top: 16px;
+        width: auto;
+        height: auto;
+        outline: 2px solid #1a1a1a;
+    }
+
+    /* Focus states for accessibility */
+    button:focus, .service-cta:focus, .footer-nav a:focus {
+        outline: 2px solid #f7b731;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 2px #f7b73133;
+    }
+    </style>
 </body>
 </html>

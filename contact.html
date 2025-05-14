@@ -526,5 +526,95 @@
             });
         });
     </script>
+
+    <!-- Footer Section (Simple) -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">DETAIL DOCTOR</span>
+                <span class="footer-address">4150 Bonillo Drive, San Diego, CA 92115</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Detail Doctor. All rights reserved.
+        </div>
+    </footer>
+
+    <style>
+    .site-footer {
+        background: #232323;
+        color: #fff;
+        padding: 36px 0 0 0;
+        font-size: 1em;
+        margin-top: 0;
+    }
+    .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px 18px 24px;
+        border-bottom: 1px solid #333;
+    }
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .footer-logo {
+        font-size: 1.3em;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+    .footer-address {
+        font-size: 0.98em;
+        color: #ccc;
+    }
+    .footer-nav {
+        display: flex;
+        gap: 28px;
+    }
+    .footer-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1em;
+        transition: color 0.2s;
+    }
+    .footer-nav a:hover {
+        color: #f7b731;
+    }
+    .footer-bottom {
+        text-align: center;
+        color: #aaa;
+        font-size: 0.98em;
+        padding: 18px 0 10px 0;
+        background: #232323;
+    }
+    @media (max-width: 700px) {
+        .footer-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 0 10px 12px 10px;
+        }
+        .footer-nav {
+            gap: 16px;
+        }
+        .footer-logo {
+            font-size: 1.1em;
+        }
+        .footer-address {
+            font-size: 0.92em;
+        }
+    }
+    </style>
 </body>
 </html>
