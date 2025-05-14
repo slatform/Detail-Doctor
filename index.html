@@ -18,33 +18,253 @@
 
     <section class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div class="hero-content animated-fade-in">
             <h1>Precision Detailing<br>for Every Car</h1>
-            <p>Mobile detailing for all vehicles, prices may vary.</p>
-            <button><i class="fas fa-calendar-check"></i> Book Now</button>
+            <p class="hero-tagline">Mobile, professional, and eco-friendly car care at your doorstep.</p>
+            <button onclick="window.location.href='contact.html'" class="hero-cta"><i class="fas fa-calendar-check"></i> Book Now</button>
         </div>
     </section>
 
     <section id="services" class="services">
         <h2>Our Services</h2>
         <div class="service-cards">
-            <div class="card" onclick="window.location.href='services.html'">
+            <div class="card" onclick="window.location.href='services.html#exterior'">
                 <i class="fas fa-car"></i>
                 <h3>Exterior Service</h3>
-                <p>Precision wash, premium wax, ceramic shield.</p>
+                <ul class="service-list">
+                    <li>Precision hand wash & dry</li>
+                    <li>Premium wax & ceramic shield</li>
+                    <li>Wheel & tire cleaning</li>
+                    <li>Glass & trim polish</li>
+                </ul>
+                <button class="learn-more" onclick="event.stopPropagation();window.location.href='services.html#exterior'">Learn More</button>
             </div>
-            <div class="card" onclick="window.location.href='services.html'">
+            <div class="card" onclick="window.location.href='services.html#interior'">
                 <i class="fas fa-tachometer-alt"></i>
                 <h3>Interior Service</h3>
-                <p>Deep clean, leather restoration, fabric care.</p>
+                <ul class="service-list">
+                    <li>Deep vacuum & shampoo</li>
+                    <li>Leather restoration & care</li>
+                    <li>Fabric & upholstery cleaning</li>
+                    <li>Odor removal & sanitization</li>
+                </ul>
+                <button class="learn-more" onclick="event.stopPropagation();window.location.href='services.html#interior'">Learn More</button>
             </div>
-            <div class="card" onclick="window.location.href='services.html'">
+            <div class="card" onclick="window.location.href='services.html#full'">
                 <i class="fas fa-car-side"></i>
                 <h3>Full Service</h3>
-                <p>End-to-end detailing perfection.</p>
+                <ul class="service-list">
+                    <li>Complete interior & exterior detail</li>
+                    <li>Paint protection & finishing</li>
+                    <li>Engine bay cleaning</li>
+                    <li>Showroom-quality results</li>
+                </ul>
+                <button class="learn-more" onclick="event.stopPropagation();window.location.href='services.html#full'">Learn More</button>
             </div>
         </div>
     </section>
+
+    <!-- USP Section -->
+    <section class="usps">
+        <h2>Why Choose Detail Doctor?</h2>
+        <div class="usp-cards">
+            <div class="usp-card">
+                <i class="fas fa-shuttle-van"></i>
+                <h3>Mobile Service</h3>
+                <p>We come to you—home, office, or anywhere in San Diego.</p>
+            </div>
+            <div class="usp-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Eco-Friendly</h3>
+                <p>We use safe, eco-friendly products and water-saving techniques.</p>
+            </div>
+            <div class="usp-card">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>Satisfaction Guarantee</h3>
+                <p>Your satisfaction is our top priority—guaranteed results every time.</p>
+            </div>
+            <div class="usp-card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Professional Results</h3>
+                <p>Experienced detailers deliver showroom-quality finishes.</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    .animated-fade-in {
+        animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .hero-cta {
+        background: #1a1a1a;
+        color: #fff;
+        border: none;
+        padding: 16px 48px;
+        font-size: 1.2em;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        margin: 0 auto;
+    }
+    .hero-cta:hover {
+        background: #333;
+        transform: translateY(-2px) scale(1.04);
+    }
+    .hero-tagline {
+        font-size: 1.3em;
+        font-weight: 400;
+        color: #2a2a2a;
+        margin-bottom: 32px;
+        margin-top: 8px;
+        letter-spacing: 0.01em;
+    }
+    @media (max-width: 768px) {
+        .hero-cta {
+            padding: 12px 28px;
+            font-size: 1em;
+        }
+        .hero-tagline {
+            font-size: 1em;
+        }
+    }
+    .usps {
+        background: #f7f7f7;
+        padding: 70px 0 50px 0;
+        text-align: center;
+    }
+    .usps h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+    }
+    .usp-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .usp-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        padding: 32px 18px 28px 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .usp-card:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+        transform: translateY(-4px) scale(1.03);
+    }
+    .usp-card i {
+        font-size: 2.2em;
+        color: #1a1a1a;
+        margin-bottom: 18px;
+    }
+    .usp-card h3 {
+        font-size: 1.15em;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #1a1a1a;
+    }
+    .usp-card p {
+        color: #4a4a4a;
+        font-size: 1em;
+        font-weight: 400;
+        margin: 0;
+    }
+    @media (max-width: 768px) {
+        .usps {
+            padding: 40px 0 30px 0;
+        }
+        .usps h2 {
+            font-size: 1.4em;
+            margin-bottom: 24px;
+        }
+        .usp-cards {
+            gap: 16px;
+        }
+        .usp-card {
+            padding: 20px 8px 18px 8px;
+        }
+        .usp-card i {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .usp-card h3 {
+            font-size: 1em;
+        }
+        .usp-card p {
+            font-size: 0.95em;
+        }
+    }
+    .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 18px 0;
+        text-align: left;
+        color: #333;
+        font-size: 1em;
+    }
+    .service-list li {
+        margin-bottom: 7px;
+        padding-left: 1.2em;
+        position: relative;
+    }
+    .service-list li:before {
+        content: '\f00c';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: #1a1a1a;
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        font-size: 0.95em;
+    }
+    .learn-more {
+        background: #fff;
+        color: #1a1a1a;
+        border: 2px solid #1a1a1a;
+        padding: 8px 22px;
+        font-size: 1em;
+        font-weight: 500;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .learn-more:hover {
+        background: #1a1a1a;
+        color: #fff;
+    }
+    @media (max-width: 768px) {
+        .service-list {
+            font-size: 0.95em;
+        }
+        .learn-more {
+            font-size: 0.95em;
+            padding: 7px 16px;
+        }
+    }
+    </style>
 
 </body>
 </html>
