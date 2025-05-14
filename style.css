@@ -271,3 +271,36 @@ nav a:hover {
         font-size: 1em;
     }
 }
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px; /* adjust as needed */
+    }
+    .logo {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    nav {
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: 100%;
+    }
+    nav a {
+        flex: 1 1 auto;
+        text-align: center;
+        margin: 0 10px;
+        font-size: 0.9em;
+        padding: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.4em;
+    }
+    nav a {
+        font-size: 0.8em;
+        margin: 0 5px;
+    }
+}
