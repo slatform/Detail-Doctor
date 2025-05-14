@@ -51,6 +51,7 @@ nav a:hover {
     color: #666;
 }
 
+/* Hero, services, cards styles (unchanged) */
 .hero {
     position: relative;
     height: 100vh;
@@ -179,9 +180,19 @@ nav a:hover {
         font-size: 1.5em;
     }
 
+    /* Updated nav: wrap and shrink */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
     nav a {
-        margin-left: 20px;
+        margin-left: 0;
         font-size: 0.9em;
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 8px 0;
     }
 
     .hero {
@@ -225,7 +236,6 @@ nav a:hover {
     }
 
     nav a {
-        margin-left: 15px;
         font-size: 0.8em;
     }
 
