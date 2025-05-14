@@ -178,6 +178,7 @@ nav a:hover {
 
     .services-hero {
         height: 50vh;
+        padding-top: 60px;
     }
 
     .services-content h1 {
@@ -213,6 +214,7 @@ nav a:hover {
 
     .services-hero {
         height: 40vh;
+        padding-top: 60px;
     }
 
     .services-content h1 {
