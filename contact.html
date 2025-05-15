@@ -438,7 +438,7 @@
             <div class="error-message-global" id="errorMessage">
                 There was an error sending your message. Please try again.
             </div>
-            <form id="contactForm" novalidate>
+            <form id="contactForm" action="https://formspree.io/f/xldbaqvd" method="POST">
                 <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Your Name" required
                            pattern="[A-Za-z\s]{2,50}" title="Please enter a valid name (2-50 characters, letters only)">
@@ -494,103 +494,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contactForm');
-            const submitButton = document.getElementById('submitButton');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-
-            // Real-time validation
-            const inputs = form.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    validateField(this);
-                });
-
-                input.addEventListener('blur', function() {
-                    validateField(this);
-                });
-            });
-
-            function validateField(field) {
-                const errorMessage = field.nextElementSibling.nextElementSibling;
-                if (field.validity.valid) {
-                    field.classList.remove('error');
-                    field.classList.add('success');
-                    errorMessage.style.display = 'none';
-                } else {
-                    field.classList.add('error');
-                    field.classList.remove('success');
-                    errorMessage.style.display = 'block';
-                }
-            }
-
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-
-                // Validate all fields
-                let isValid = true;
-                inputs.forEach(input => {
-                    validateField(input);
-                    if (!input.validity.valid) {
-                        isValid = false;
-                    }
-                });
-
-                if (!isValid) {
-                    submitButton.classList.add('error');
-                    setTimeout(() => submitButton.classList.remove('error'), 1200);
-                    return;
-                }
-
-                // Show loading state
-                submitButton.disabled = true;
-                submitButton.classList.add('loading');
-                loadingSpinner.style.display = 'block';
-                submitButton.textContent = 'Sending...';
-
-                try {
-                    // Simulate form submission (replace with actual API call)
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    // Show success message
-                    successMessage.style.display = 'block';
-                    errorMessage.style.display = 'none';
-                    form.reset();
-                    // Reset form fields
-                    inputs.forEach(input => {
-                        input.classList.remove('error');
-                        input.classList.remove('success');
-                        input.nextElementSibling.nextElementSibling.style.display = 'none';
-                    });
-                    submitButton.classList.remove('loading');
-                    submitButton.classList.add('success');
-                    submitButton.textContent = 'Sent!';
-                    setTimeout(() => {
-                        submitButton.classList.remove('success');
-                        submitButton.textContent = 'Send Message';
-                        submitButton.disabled = false;
-                        loadingSpinner.style.display = 'none';
-                    }, 1500);
-                } catch (error) {
-                    // Show error message
-                    errorMessage.style.display = 'block';
-                    successMessage.style.display = 'none';
-                    submitButton.classList.remove('loading');
-                    submitButton.classList.add('error');
-                    submitButton.textContent = 'Error';
-                    setTimeout(() => {
-                        submitButton.classList.remove('error');
-                        submitButton.textContent = 'Send Message';
-                        submitButton.disabled = false;
-                        loadingSpinner.style.display = 'none';
-                    }, 1500);
-                }
-            });
-        });
-    </script>
 
     <!-- Footer Section (Simple) -->
     <footer class="site-footer reveal-on-scroll">
