@@ -13,18 +13,18 @@
         <div class="logo">DETAIL DOCTOR</div>
         <nav>
             <a href="index.html">Home</a>
-            <a href="#services">Services</a>
+            <a href="#services" class="active">Services</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
-    <section class="services-hero">
+    <section class="services-hero reveal-on-scroll parallax-hero">
         <div class="services-overlay"></div>
         <div class="services-content animated-fade-in">
             <h1>Our Services</h1>
             <p class="services-tagline">Premium mobile detailing for every vehicle—convenient, professional, and eco-friendly.</p>
         </div>
     </section>
-    <section class="services-list" id="services-list">
+    <section class="services-list reveal-on-scroll stagger-parent" id="services-list">
         <div class="service-item">
             <i class="fas fa-car"></i>
             <h2>Exterior Service</h2>
@@ -64,7 +64,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="faq-section reveal-on-scroll">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-list">
             <div class="faq-item">
@@ -91,7 +91,7 @@
     </section>
 
     <!-- Footer Section (Simple) -->
-    <footer class="site-footer">
+    <footer class="site-footer reveal-on-scroll">
         <div class="footer-inner">
             <div class="footer-brand">
                 <span class="footer-logo">DETAIL DOCTOR</span>
@@ -99,7 +99,7 @@
             </div>
             <nav class="footer-nav">
                 <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
+                <a href="services.html" class="active">Services</a>
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
@@ -330,6 +330,69 @@
         outline-offset: 2px;
         box-shadow: 0 0 0 2px #f7b73133;
     }
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .reveal-on-scroll.visible {
+        opacity: 1;
+        transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .reveal-on-scroll,
+        .animated-fade-in {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
+    .parallax-hero {
+        will-change: background-position;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    @media (max-width: 900px), (prefers-reduced-motion: reduce) {
+        .parallax-hero {
+            background-attachment: scroll;
+        }
+    }
     </style>
+    <script>
+    // Section reveal on scroll with stagger
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const reveals = document.querySelectorAll('.reveal-on-scroll');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < windowHeight - 60) {
+                    el.classList.add('visible');
+                    // Stagger children if parent has .stagger-parent
+                    if (el.classList.contains('stagger-parent')) {
+                        const children = el.children;
+                        for (let i = 0; i < children.length; i++) {
+                            children[i].style.transitionDelay = (i * 0.12) + 's';
+                        }
+                    }
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Parallax effect for hero
+        const parallaxHero = document.querySelector('.parallax-hero');
+        if (parallaxHero) {
+            window.addEventListener('scroll', function() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                const scrolled = window.pageYOffset;
+                parallaxHero.style.backgroundPosition = `center ${-scrolled * 0.2}px`;
+            });
+        }
+    });
+    </script>
 </body>
 </html>

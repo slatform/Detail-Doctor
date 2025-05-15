@@ -246,19 +246,27 @@
             border: 2px solid #e5e5e5;
             border-radius: 6px;
             outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             background: #fff;
+            box-shadow: 0 0 0 0 rgba(26,26,26,0);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: #1a1a1a;
-            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+            border-color: #f7b731;
+            box-shadow: 0 0 0 3px rgba(247,183,49,0.18);
         }
 
         .form-group input.error,
         .form-group textarea.error {
             border-color: #dc3545;
+            box-shadow: 0 0 0 3px rgba(220,53,69,0.12);
+        }
+
+        .form-group input.success,
+        .form-group textarea.success {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40,167,69,0.12);
         }
 
         .error-message {
@@ -283,23 +291,15 @@
             font-weight: 500;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.3s, transform 0.15s cubic-bezier(0.23, 1, 0.32, 1);
             align-self: center;
             min-width: 150px;
+            overflow: hidden;
         }
-
-        .submit-button:hover {
-            background: #333;
-            transform: translateY(-2px);
+        .submit-button:active {
+            transform: scale(0.97);
         }
-
-        .submit-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .loading-spinner {
+        .submit-button .loading-spinner {
             display: none;
             width: 20px;
             height: 20px;
@@ -312,13 +312,25 @@
             top: 50%;
             transform: translateY(-50%);
         }
-
+        .submit-button.loading .loading-spinner {
+            display: inline-block;
+        }
+        .submit-button.loading {
+            background: #ccc;
+            color: #fff;
+            cursor: not-allowed;
+        }
+        .submit-button.success {
+            background: #28a745;
+        }
+        .submit-button.error {
+            background: #dc3545;
+        }
         @keyframes spin {
             to {
                 transform: translateY(-50%) rotate(360deg);
             }
         }
-
         .success-message,
         .error-message-global {
             display: none;
@@ -360,6 +372,34 @@
             top: 25px;
             transform: none;
         }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+        .parallax-hero {
+            will-change: background-position;
+            background-attachment: fixed;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media (max-width: 900px), (prefers-reduced-motion: reduce) {
+            .parallax-hero {
+                background-attachment: scroll;
+            }
+        }
     </style>
 </head>
 <body>
@@ -368,11 +408,11 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
         </nav>
     </header>
 
-    <section class="contact-hero">
+    <section class="contact-hero reveal-on-scroll parallax-hero">
         <div class="contact-overlay"></div>
         <div class="contact-content">
             <h1>Contact Us</h1>
@@ -380,7 +420,7 @@
         </div>
     </section>
 
-    <section class="contact-container">
+    <section class="contact-container reveal-on-scroll">
         <div class="contact-form">
             <h2>Send a Message</h2>
             <div class="success-message" id="successMessage">
@@ -468,12 +508,13 @@
 
             function validateField(field) {
                 const errorMessage = field.nextElementSibling.nextElementSibling;
-                
                 if (field.validity.valid) {
                     field.classList.remove('error');
+                    field.classList.add('success');
                     errorMessage.style.display = 'none';
                 } else {
                     field.classList.add('error');
+                    field.classList.remove('success');
                     errorMessage.style.display = 'block';
                 }
             }
@@ -491,44 +532,59 @@
                 });
 
                 if (!isValid) {
+                    submitButton.classList.add('error');
+                    setTimeout(() => submitButton.classList.remove('error'), 1200);
                     return;
                 }
 
                 // Show loading state
                 submitButton.disabled = true;
+                submitButton.classList.add('loading');
                 loadingSpinner.style.display = 'block';
                 submitButton.textContent = 'Sending...';
 
                 try {
                     // Simulate form submission (replace with actual API call)
                     await new Promise(resolve => setTimeout(resolve, 1500));
-                    
                     // Show success message
                     successMessage.style.display = 'block';
                     errorMessage.style.display = 'none';
                     form.reset();
-                    
                     // Reset form fields
                     inputs.forEach(input => {
                         input.classList.remove('error');
+                        input.classList.remove('success');
                         input.nextElementSibling.nextElementSibling.style.display = 'none';
                     });
+                    submitButton.classList.remove('loading');
+                    submitButton.classList.add('success');
+                    submitButton.textContent = 'Sent!';
+                    setTimeout(() => {
+                        submitButton.classList.remove('success');
+                        submitButton.textContent = 'Send Message';
+                        submitButton.disabled = false;
+                        loadingSpinner.style.display = 'none';
+                    }, 1500);
                 } catch (error) {
                     // Show error message
                     errorMessage.style.display = 'block';
                     successMessage.style.display = 'none';
-                } finally {
-                    // Reset button state
-                    submitButton.disabled = false;
-                    loadingSpinner.style.display = 'none';
-                    submitButton.textContent = 'Send Message';
+                    submitButton.classList.remove('loading');
+                    submitButton.classList.add('error');
+                    submitButton.textContent = 'Error';
+                    setTimeout(() => {
+                        submitButton.classList.remove('error');
+                        submitButton.textContent = 'Send Message';
+                        submitButton.disabled = false;
+                        loadingSpinner.style.display = 'none';
+                    }, 1500);
                 }
             });
         });
     </script>
 
     <!-- Footer Section (Simple) -->
-    <footer class="site-footer">
+    <footer class="site-footer reveal-on-scroll">
         <div class="footer-inner">
             <div class="footer-brand">
                 <span class="footer-logo">DETAIL DOCTOR</span>
@@ -537,7 +593,7 @@
             <nav class="footer-nav">
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="active">Contact</a>
             </nav>
         </div>
         <div class="footer-bottom">
@@ -616,5 +672,41 @@
         }
     }
     </style>
+
+    <script>
+    // Section reveal on scroll with stagger (existing)
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const reveals = document.querySelectorAll('.reveal-on-scroll');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < windowHeight - 60) {
+                    el.classList.add('visible');
+                    // Stagger children if parent has .stagger-parent
+                    if (el.classList.contains('stagger-parent')) {
+                        const children = el.children;
+                        for (let i = 0; i < children.length; i++) {
+                            children[i].style.transitionDelay = (i * 0.12) + 's';
+                        }
+                    }
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Parallax effect for hero
+        const parallaxHero = document.querySelector('.parallax-hero');
+        if (parallaxHero) {
+            window.addEventListener('scroll', function() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                const scrolled = window.pageYOffset;
+                parallaxHero.style.backgroundPosition = `center ${-scrolled * 0.2}px`;
+            });
+        }
+    });
+    </script>
 </body>
 </html>
