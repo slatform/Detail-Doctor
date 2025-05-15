@@ -360,9 +360,8 @@ html {
 }
 
 nav a.active, .footer-nav a.active {
-    color: #f7b731;
+    
 }
 nav a.active::after, .footer-nav a.active::after {
-    transform: scaleX(1);
-    background: #f7b731;
+    
 }
