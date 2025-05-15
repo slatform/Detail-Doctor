@@ -27,6 +27,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             max-width: 1000px;
             margin: 0 auto;
+            overflow-x: auto;
         }
         @media (min-width: 700px) {
             .contact-details {
@@ -223,12 +224,22 @@
         }
         @media (max-width: 700px) {
             .contact-details {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                padding: 10px 2px;
+                grid-template-columns: repeat(3, minmax(140px, 1fr));
+                gap: 6px;
+                padding: 6px 0;
+                overflow-x: auto;
             }
             .contact-item {
-                padding: 10px 4px;
+                padding: 6px 2px;
+                min-width: 120px;
+            }
+            .contact-item div h3 {
+                font-size: 0.95em;
+            }
+            .contact-item div p {
+                font-size: 0.85em;
+                word-break: keep-all;
+                white-space: nowrap;
             }
         }
 
