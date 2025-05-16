@@ -3,417 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DETAIL DOCTOR</title>
+    <title>Contact - Detail Doctor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="contact.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        .contact-container {
-            padding: 40px 20px;
-            background: #f9f9f9;
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .contact-details {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        @media (min-width: 700px) {
-            .contact-details {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 30px;
-                padding: 35px 40px;
-            }
-        }
-        .contact-details-title {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .contact-form {
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-        .contact-form h2 {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 25px 15px;
-            border-radius: 10px;
-            background: #fafafa;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            min-width: 0;
-            min-height: 120px;
-            transition: box-shadow 0.2s;
-        }
-        .contact-item:hover {
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        }
-        .contact-item i {
-            color: #1a1a1a;
-            font-size: 2em;
-            margin-bottom: 8px;
-        }
-        .contact-item div {
-            text-align: center;
-        }
-        .contact-item div h3 {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 4px;
-        }
-        .contact-item div p {
-            color: #4a4a4a;
-            font-size: 1em;
-            margin: 0;
-            word-break: break-word;
-            white-space: normal;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100%;
-        }
-        .contact-form form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .contact-form input, .contact-form textarea {
-            padding: 12px;
-            font-size: 0.95em;
-            border: 1px solid #e5e5e5;
-            border-radius: 6px;
-            outline: none;
-        }
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .contact-form button {
-            background: #1a1a1a;
-            color: #fff;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1em;
-            font-weight: 500;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            align-self: center;
-        }
-        .contact-form button:hover {
-            background: #333;
-        }
-        .contact-hero {
-            height: 50vh;
-            background: url('https://images.unsplash.com/photo-1615743046641-9af2e6f6c0f2?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
-        }
-        .contact-content h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .contact-content p {
-            font-size: 1.1em;
-        }
-        @media (min-width: 768px) {
-            .contact-container {
-                padding: 50px 30px;
-                gap: 25px;
-            }
-            .contact-details, .contact-form {
-                padding: 30px;
-            }
-            .contact-details-title, .contact-form h2 {
-                font-size: 2em;
-            }
-            .contact-item {
-                padding: 18px;
-                gap: 20px;
-            }
-            .contact-item i {
-                font-size: 1.8em;
-            }
-            .contact-item div h3 {
-                font-size: 1.2em;
-            }
-            .contact-item div p {
-                font-size: 1em;
-            }
-            .contact-form input, .contact-form textarea {
-                padding: 14px;
-                font-size: 1em;
-            }
-            .contact-form button {
-                padding: 14px 40px;
-                font-size: 1.1em;
-            }
-            .contact-hero {
-                height: 60vh;
-            }
-            .contact-content h1 {
-                font-size: 3em;
-            }
-            .contact-content p {
-                font-size: 1.2em;
-            }
-        }
-        @media (max-width: 480px) {
-            .contact-container {
-                padding: 30px 15px;
-                gap: 15px;
-            }
-            .contact-details, .contact-form {
-                padding: 20px;
-            }
-            .contact-details-title, .contact-form h2 {
-                font-size: 1.6em;
-            }
-            .contact-item {
-                padding: 12px;
-                gap: 10px;
-            }
-            .contact-item i {
-                font-size: 1.4em;
-            }
-            .contact-item div h3 {
-                font-size: 1em;
-            }
-            .contact-item div p {
-                font-size: 0.9em;
-            }
-            .contact-form input, .contact-form textarea {
-                padding: 10px;
-                font-size: 0.9em;
-            }
-            .contact-form textarea {
-                min-height: 90px;
-            }
-            .contact-form button {
-                padding: 10px 25px;
-                font-size: 0.95em;
-            }
-            .contact-hero {
-                height: 40vh;
-            }
-            .contact-content h1 {
-                font-size: 2em;
-            }
-            .contact-content p {
-                font-size: 1em;
-            }
-        }
-        @media (max-width: 700px) {
-            .contact-details {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 6px;
-                padding: 6px 0;
-            }
-            .contact-item {
-                padding: 8px 2px;
-            }
-            .contact-item i {
-                font-size: 1.3em;
-            }
-            .contact-item div h3 {
-                font-size: 0.95em;
-            }
-            .contact-item div p {
-                font-size: 0.80em;
-            }
-        }
-
-        /* Form Enhancement Styles */
-        .form-group {
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            font-size: 0.95em;
-            border: 2px solid #e5e5e5;
-            border-radius: 6px;
-            outline: none;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            background: #fff;
-            box-shadow: 0 0 0 0 rgba(26,26,26,0);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #f7b731;
-            box-shadow: 0 0 0 3px rgba(247,183,49,0.18);
-        }
-
-        .form-group input.error,
-        .form-group textarea.error {
-            border-color: #dc3545;
-            box-shadow: 0 0 0 3px rgba(220,53,69,0.12);
-        }
-
-        .form-group input.success,
-        .form-group textarea.success {
-            border-color: #28a745;
-            box-shadow: 0 0 0 3px rgba(40,167,69,0.12);
-        }
-
-        .error-message {
-            color: #dc3545;
-            font-size: 0.85em;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .form-group input.error + .error-message,
-        .form-group textarea.error + .error-message {
-            display: block;
-        }
-
-        .submit-button {
-            position: relative;
-            background: #1a1a1a;
-            color: #fff;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1em;
-            font-weight: 500;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.15s cubic-bezier(0.23, 1, 0.32, 1);
-            align-self: center;
-            min-width: 150px;
-            overflow: hidden;
-        }
-        .submit-button:active {
-            transform: scale(0.97);
-        }
-        .submit-button .loading-spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .submit-button.loading .loading-spinner {
-            display: inline-block;
-        }
-        .submit-button.loading {
-            background: #ccc;
-            color: #fff;
-            cursor: not-allowed;
-        }
-        .submit-button.success {
-            background: #28a745;
-        }
-        .submit-button.error {
-            background: #dc3545;
-        }
-        @keyframes spin {
-            to {
-                transform: translateY(-50%) rotate(360deg);
-            }
-        }
-        .success-message,
-        .error-message-global {
-            display: none;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .error-message-global {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        /* Form field icons */
-        .form-group i {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-            transition: color 0.3s ease;
-        }
-
-        .form-group input:focus + i,
-        .form-group textarea:focus + i {
-            color: #1a1a1a;
-        }
-
-        .form-group textarea + i {
-            top: 25px;
-            transform: none;
-        }
-
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .reveal-on-scroll.visible {
-            opacity: 1;
-            transform: none;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .reveal-on-scroll {
-                transition: none !important;
-                animation: none !important;
-            }
-        }
-        .parallax-hero {
-            will-change: background-position;
-            background-attachment: fixed;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        @media (max-width: 900px), (prefers-reduced-motion: reduce) {
-            .parallax-hero {
-                background-attachment: scroll;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -425,7 +17,7 @@
         </nav>
     </header>
 
-    <section class="contact-hero reveal-on-scroll parallax-hero">
+    <section class="contact-hero">
         <div class="contact-overlay"></div>
         <div class="contact-content">
             <h1>Contact Us</h1>
@@ -433,197 +25,79 @@
         </div>
     </section>
 
-    <section class="contact-container reveal-on-scroll">
-        <div class="contact-form">
+    <section class="contact-details">
+        <div class="form-container">
             <h2>Send a Message</h2>
-            <div class="success-message" id="successMessage">
+            <div id="success-message" style="display: none; color: #00ff66; margin-bottom: 20px;">
                 Thank you for your message! We'll get back to you soon.
             </div>
-            <div class="error-message-global" id="errorMessage">
+            <div id="error-message" style="display: none; color: #ff3333; margin-bottom: 20px;">
                 There was an error sending your message. Please try again.
             </div>
-            <form id="contactForm" action="https://formspree.io/f/xldbaqvd" method="POST">
-                <input type="hidden" name="_redirect" value="https://detaildoctor.info/thankyou.html">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required
-                           pattern="[A-Za-z\s]{2,50}" title="Please enter a valid name (2-50 characters, letters only)">
-                    <i class="fas fa-user"></i>
-                    <div class="error-message">Please enter a valid name (2-50 characters, letters only)</div>
+            <form id="contact-form">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <span id="name-error" style="display: none;">
+                        Please enter a valid name (2-50 characters, letters only)
+                    </span>
                 </div>
-                <div class="form-group">
+                <div>
                     <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    <i class="fas fa-envelope"></i>
-                    <div class="error-message">Please enter a valid email address</div>
+                    <span id="email-error" style="display: none;">
+                        Please enter a valid email address
+                    </span>
                 </div>
-                <div class="form-group">
-                    <input type="tel" id="phone" name="phone" placeholder="Your Phone (Optional)"
-                           pattern="[0-9\-\+\(\)\s]{10,15}" title="Please enter a valid phone number">
-                    <i class="fas fa-phone"></i>
-                    <div class="error-message">Please enter a valid phone number</div>
+                <div>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
+                    <span id="phone-error" style="display: none;">
+                        Please enter a valid phone number
+                    </span>
                 </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" required
-                              minlength="10" maxlength="500"></textarea>
-                    <i class="fas fa-comment"></i>
-                    <div class="error-message">Please enter a message (10-500 characters)</div>
+                <div>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <span id="message-error" style="display: none;">
+                        Please enter a message (10-500 characters)
+                    </span>
                 </div>
-                <button type="submit" class="submit-button" id="submitButton">
-                    Send Message
-                    <div class="loading-spinner" id="loadingSpinner"></div>
-                </button>
+                <button type="submit">Send Message</button>
             </form>
         </div>
 
-        <h2 class="contact-details-title">Connect With Us</h2>
-        <div class="contact-details">
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <h3>Phone</h3>
-                    <p><a href="tel:+16193943800" style="color: inherit; text-decoration: none;">(619) 394-3800</a></p>
+        <div class="connect-container">
+            <h2>Connect With Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h2>Phone</h2>
+                    <p>(619) 394-3800</p>
                 </div>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h3>Email</h3>
-                    <p><a href="mailto:detaildr.sd@gmail.com" style="color: inherit; text-decoration: none;">detaildr.sd@gmail.com</a></p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h2>Email</h2>
+                    <p>info@detaildoctor.com</p>
                 </div>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h3>Location</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h2>Location</h2>
                     <p>San Diego, CA</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section (Simple) -->
-    <footer class="site-footer reveal-on-scroll">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <span class="footer-logo">DETAIL DOCTOR</span>
-                <span class="footer-address">San Diego, CA</span>
+    <footer style="background: #1a1a1a url('https://www.transparenttextures.com/patterns/honeycomb.png') repeat; padding: 40px 80px; text-align: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
+            <div style="text-align: left;">
+                <h3 style="font-size: 1.5em; font-weight: 700; margin-bottom: 10px; color: #ffffff;">DETAIL DOCTOR</h3>
+                <p style="color: #b3b3b3; font-size: 0.9em;">San Diego, CA</p>
             </div>
-            <nav class="footer-nav">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                <a href="index.html" style="color: #ffffff; text-decoration: none; font-weight: 500;">Home</a>
+                <a href="services.html" style="color: #ffffff; text-decoration: none; font-weight: 500;">Services</a>
+                <a href="contact.html" style="color: #ffffff; text-decoration: none; font-weight: 500;">Contact</a>
+            </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2024 Detail Doctor. All rights reserved.
-        </div>
+        <p style="margin-top: 20px; color: #b3b3b3; font-size: 0.9em;">© 2025 Detail Doctor. All rights reserved.</p>
     </footer>
-
-    <style>
-    .site-footer {
-        background: #232323;
-        color: #fff;
-        padding: 36px 0 0 0;
-        font-size: 1em;
-        margin-top: 0;
-    }
-    .footer-inner {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 24px 18px 24px;
-        border-bottom: 1px solid #333;
-    }
-    .footer-brand {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-    .footer-logo {
-        font-size: 1.3em;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: #fff;
-    }
-    .footer-address {
-        font-size: 0.98em;
-        color: #ccc;
-    }
-    .footer-nav {
-        display: flex;
-        gap: 28px;
-    }
-    .footer-nav a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1em;
-        transition: color 0.2s;
-    }
-    .footer-nav a:hover {
-        color: #f7b731;
-    }
-    .footer-bottom {
-        text-align: center;
-        color: #aaa;
-        font-size: 0.98em;
-        padding: 18px 0 10px 0;
-        background: #232323;
-    }
-    @media (max-width: 700px) {
-        .footer-inner {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 18px;
-            padding: 0 10px 12px 10px;
-        }
-        .footer-nav {
-            gap: 16px;
-        }
-        .footer-logo {
-            font-size: 1.1em;
-        }
-        .footer-address {
-            font-size: 0.92em;
-        }
-    }
-    </style>
-
-    <script>
-    // Section reveal on scroll with stagger (existing)
-    document.addEventListener('DOMContentLoaded', function() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const reveals = document.querySelectorAll('.reveal-on-scroll');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach(el => {
-                const top = el.getBoundingClientRect().top;
-                if (top < windowHeight - 60) {
-                    el.classList.add('visible');
-                    // Stagger children if parent has .stagger-parent
-                    if (el.classList.contains('stagger-parent')) {
-                        const children = el.children;
-                        for (let i = 0; i < children.length; i++) {
-                            children[i].style.transitionDelay = (i * 0.12) + 's';
-                        }
-                    }
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Parallax effect for hero
-        const parallaxHero = document.querySelector('.parallax-hero');
-        if (parallaxHero) {
-            window.addEventListener('scroll', function() {
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-                const scrolled = window.pageYOffset;
-                parallaxHero.style.backgroundPosition = `center ${-scrolled * 0.2}px`;
-            });
-        }
-    });
-    </script>
 </body>
 </html>
