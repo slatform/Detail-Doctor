@@ -63,34 +63,32 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section reveal-on-scroll">
+    <section class="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-list">
-            <div class="faq-item">
-                <h3>How long does a typical detail take?</h3>
+            <details class="faq-item">
+                <summary>How long does a typical detail take?</summary>
                 <p>Most details take between 2-4 hours, depending on the service and vehicle size.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What do I need to provide?</h3>
+            </details>
+            <details class="faq-item">
+                <summary>What do I need to provide?</summary>
                 <p>Just your vehicle and access to a parking spot. We bring all the equipment and supplies needed.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What areas do you serve?</h3>
+            </details>
+            <details class="faq-item">
+                <summary>What areas do you serve?</summary>
                 <p>We serve all of San Diego and surrounding areas. Contact us if you're unsure about your location.</p>
-            </div>
-            <div class="faq-item">
-                <h3>How do I book a service?</h3>
+            </details>
+            <details class="faq-item">
+                <summary>How do I book a service?</summary>
                 <p>You can book online, call us, or use the contact form. We'll confirm your appointment promptly.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Are your products eco-friendly?</h3>
+            </details>
+            <details class="faq-item">
+                <summary>Are your products eco-friendly?</summary>
                 <p>Yes! We use safe, eco-friendly products and water-saving techniques for every detail.</p>
-            </div>
+            </details>
         </div>
     </section>
-
-    <!-- Footer Section (Simple) -->
+    
     <footer style="background: #1a1a1a url('https://www.transparenttextures.com/patterns/honeycomb.png') repeat; padding: 40px 80px; text-align: center;">
         <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
             <div style="text-align: left;">
@@ -105,8 +103,9 @@
         </div>
         <p style="margin-top: 20px; color: #b3b3b3; font-size: 0.9em;">© 2025 Detail Doctor. All rights reserved.</p>
     </footer>
-
-    <style>
+</body>
+</html>
+<style>
     .site-footer {
         background: #232323;
         color: #fff;
@@ -250,147 +249,3 @@
             padding: 8px 18px;
         }
     }
-    .faq-section {
-        background: #f7f7f7;
-        padding: 70px 0 50px 0;
-        text-align: center;
-    }
-    .faq-section h2 {
-        font-size: 2em;
-        font-weight: 700;
-        margin-bottom: 40px;
-        color: #1a1a1a;
-    }
-    .faq-list {
-        max-width: 800px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        text-align: left;
-    }
-    .faq-item h3 {
-        font-size: 1.15em;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #1a1a1a;
-    }
-    .faq-item p {
-        color: #4a4a4a;
-        font-size: 1em;
-        margin: 0;
-    }
-    @media (max-width: 700px) {
-        .faq-section {
-            padding: 40px 0 30px 0;
-        }
-        .faq-section h2 {
-            font-size: 1.2em;
-            margin-bottom: 24px;
-        }
-        .faq-list {
-            gap: 16px;
-        }
-        .faq-item h3 {
-            font-size: 1em;
-        }
-        .faq-item p {
-            font-size: 0.95em;
-        }
-    }
-    .skip-link {
-        position: absolute;
-        left: -999px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        z-index: 10000;
-        background: #f7b731;
-        color: #1a1a1a;
-        padding: 10px 18px;
-        border-radius: 6px;
-        font-weight: 600;
-        font-size: 1em;
-        transition: left 0.2s;
-    }
-    .skip-link:focus {
-        left: 16px;
-        top: 16px;
-        width: auto;
-        height: auto;
-        outline: 2px solid #1a1a1a;
-    }
-
-    /* Focus states for accessibility */
-    button:focus, .service-cta:focus, .footer-nav a:focus {
-        outline: 2px solid #f7b731;
-        outline-offset: 2px;
-        box-shadow: 0 0 0 2px #f7b73133;
-    }
-    .reveal-on-scroll {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .reveal-on-scroll.visible {
-        opacity: 1;
-        transform: none;
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .reveal-on-scroll,
-        .animated-fade-in {
-            transition: none !important;
-            animation: none !important;
-        }
-    }
-    .parallax-hero {
-        will-change: background-position;
-        background-attachment: fixed;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    @media (max-width: 900px), (prefers-reduced-motion: reduce) {
-        .parallax-hero {
-            background-attachment: scroll;
-        }
-    }
-    </style>
-    <script>
-    // Section reveal on scroll with stagger
-    document.addEventListener('DOMContentLoaded', function() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const reveals = document.querySelectorAll('.reveal-on-scroll');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach(el => {
-                const top = el.getBoundingClientRect().top;
-                if (top < windowHeight - 60) {
-                    el.classList.add('visible');
-                    // Stagger children if parent has .stagger-parent
-                    if (el.classList.contains('stagger-parent')) {
-                        const children = el.children;
-                        for (let i = 0; i < children.length; i++) {
-                            children[i].style.transitionDelay = (i * 0.12) + 's';
-                        }
-                    }
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Parallax effect for hero
-        const parallaxHero = document.querySelector('.parallax-hero');
-        if (parallaxHero) {
-            window.addEventListener('scroll', function() {
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-                const scrolled = window.pageYOffset;
-                parallaxHero.style.backgroundPosition = `center ${-scrolled * 0.2}px`;
-            });
-        }
-    });
-    </script>
-</body>
-</html>
