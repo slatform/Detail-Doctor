@@ -333,9 +333,15 @@ button:hover {
 }
 
 footer {
-    background: #1a1a1a;
+    width: 100%;
+    background: #1a1a1a url('https://www.transparenttextures.com/patterns/honeycomb.png') repeat;
     padding: 40px 80px;
-    text-align: center;
+    color: #fff;
+    text-align: left;
+    border-top: 1px solid #232323;
+    box-sizing: border-box;
+}
+footer > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -344,29 +350,46 @@ footer {
     flex-wrap: wrap;
     gap: 20px;
 }
-
-footer div {
-    text-align: left;
-}
-
 footer h3 {
     font-size: 1.5em;
     font-weight: 700;
     margin-bottom: 10px;
+    color: #ffffff;
 }
-
 footer p {
     color: #b3b3b3;
     font-size: 0.9em;
 }
-
 footer a {
     color: #ffffff;
     text-decoration: none;
-    margin: 0 15px;
     font-weight: 500;
+    margin-left: 20px;
+    font-size: 1em;
+    transition: color 0.2s;
 }
-
+footer a:first-child {
+    margin-left: 0;
+}
 footer a:hover {
-    color: #00ff66;
+    color: #f7b731;
+}
+@media (max-width: 700px) {
+    footer > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 0 10px 12px 10px;
+    }
+    footer h3 {
+        font-size: 1.1em;
+    }
+    footer p {
+        font-size: 0.92em;
+    }
+    footer a {
+        font-size: 0.95em;
+        margin-left: 0;
+        margin-right: 10px;
+    }
 }

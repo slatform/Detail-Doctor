@@ -117,6 +117,22 @@ nav a:hover {
     margin: 0 auto;
 }
 
+.glass-card {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px 0 rgba(80, 150, 255, 0.12), 0 1.5px 8px 0 #0008;
+    border: 1.5px solid rgba(80, 150, 255, 0.25);
+    backdrop-filter: blur(8px);
+    color: #1a1a1a;
+    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.glass-card:hover {
+    box-shadow: 0 8px 48px 0 rgba(80, 150, 255, 0.22), 0 2px 12px 0 #000a;
+    border-color: #5096ff;
+    transform: translateY(-8px) scale(1.03);
+}
+
 .service-item {
     padding: 40px 20px;
     border-radius: 10px;
@@ -135,6 +151,7 @@ nav a:hover {
     font-size: 2.5em;
     color: #00ff66;
     margin-bottom: 20px;
+    text-shadow: 0 0 8px #00ff6633;
 }
 
 .service-item h2 {
@@ -142,12 +159,13 @@ nav a:hover {
     font-weight: 600;
     margin-bottom: 15px;
     color: #ffffff;
+    text-shadow: none;
 }
 
 .service-item p {
-    color: #b3b3b3;
+    color: #ffffff;
     font-size: 1.05em;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 15px;
 }
 
@@ -321,4 +339,20 @@ nav a:hover {
     .service-item .price {
         font-size: 1.2em;
     }
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 18px 0;
+    text-align: left;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.service-features li {
+    margin-bottom: 7px;
+    padding-left: 1.2em;
+    position: relative;
 }
