@@ -376,9 +376,9 @@ nav a:hover {
 }
 
 /* Footer */
-footer {
+footer, .site-footer {
     background: #0d0d0d;
-    color: #b3b3b3;
+    color: #fff;
     border-top: 1px solid #252525;
 }
 
