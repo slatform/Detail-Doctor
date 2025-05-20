@@ -33,7 +33,9 @@ header {
     letter-spacing: 1px;
     color: #ffffff;
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-decoration: none; 
 }
+
 
 .logo:hover {
     color: #00ff66;
